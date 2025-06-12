@@ -12,7 +12,9 @@ with DAG(
     dag_id='telecom_elt',
     default_args=default_args,
     schedule_interval='@hourly',
-    catchup=False
+    catchup=False,
+    description='ELT pipeline for Telecom Churn CSV using PostgreSQL and Airflow',
+    tags=['elt', 'postgres', 'telecom']
 ) as dag:
 
     load_staging = PostgresOperator(
